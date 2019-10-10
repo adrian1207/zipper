@@ -1,18 +1,15 @@
 # Note
 
+This is an compatibility update for `laravel 6.0+` of [Chumper/Zipper](https://github.com/Chumper/Zipper). All Credit goes to 
+ [Chumper/Zipper](https://github.com/Chumper/Zipper) 
 
 # Zipper
-
-[![Build Status](https://travis-ci.org/Chumper/Zipper.png)](https://travis-ci.org/Chumper/Zipper)
 
 This is a simple Wrapper around the ZipArchive methods with some handy functions.
 
 ## Installation
 
-1. Add this package to the list of required packages, inside `composer.json`
-  * for Laravel 5: `"imritesh/zipper": "1.0.x"`
-  * ~~for Laravel 4: `"imritesh/zipper": "0.5.x"`~~
-2. Run `composer update`
+2. Run `composer require imritesh/zipper`
 
 3. Go to `app/config/app.php`
 
@@ -30,7 +27,7 @@ Zipper::make('public/test.zip')->add($files)->close();
 
 ## Another example
 ```php
-$zipper = new \Chumper\Zipper\Zipper;
+$zipper = new \imritesh\Zipper\Zipper;
 
 $zipper->make('test.zip')->folder('test')->add('composer.json');
 $zipper->zip('test.zip')->folder('test')->add('composer.json','test');
@@ -200,10 +197,5 @@ Example: extract all files **except** those ending with `test.php` from `src` fo
 ```php
 Zipper::make('test.zip')->folder('src')->extractMatchingRegex($path, '/^(?!.*test\.php).*$/i'); 
 ```
-
-# Development
-
-Maybe it is a good idea to add other compression functions like rar, phar or bzip2 etc...
-Everything is setup for that, if you want just fork and develop further.
 
 If you need other functions or got errors, please leave an issue on github.
